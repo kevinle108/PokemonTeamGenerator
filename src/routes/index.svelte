@@ -15,7 +15,6 @@
   const getPokeImgUrl =async (pokemonId) => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
     const data = await res.json();
-    console.log(data);
     return data;
   }
 </script>
@@ -31,9 +30,9 @@
       <div class="indiv-member">
         <h3>{member.pokemonName}</h3>
         {#await getPokeImgUrl(member.pokemonId)}
-          <p>...waiting</p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/64px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball">
         {:then data}
-          <img src="{data.sprites.front_default}" alt="">
+          <img src="{data.sprites.front_default}" alt="{member.pokemonName}">
         {:catch error}
           <p>An error occurred!</p>
         {/await}      
