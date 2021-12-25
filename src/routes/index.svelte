@@ -11,8 +11,7 @@
 </script>
 <script lang="ts">
   export let data: Array<Team>;
-  console.log(data);
-
+  // console.log(data);
   const getPokeImgUrl =async (pokemonId) => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
     const data = await res.json();
@@ -20,6 +19,8 @@
     return data;
   }
 </script>
+<!-- reference for async: -->
+<!-- https://svelte.dev/repl/70e61d6cc91345cdaca2db9b7077a941?version=3.44.3 -->
 
 <section class="container">
   {#each data as team}
@@ -48,8 +49,6 @@
   .container {
     margin: 0 auto;
     width: 100%;
-    /* background-color: lightgrey; */
-
   }
   .team-title {
     text-align: center;
