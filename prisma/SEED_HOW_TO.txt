@@ -1,0 +1,15 @@
+First, install the package: 
+npm install -D typescript ts-node @types/node
+
+Add to package.json:
+"prisma": {
+   "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+}
+
+To seed, run:
+
+prisma migrate dev
+
+or
+
+npx prisma db seed
