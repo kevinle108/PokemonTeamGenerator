@@ -1,0 +1,21 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Team {
+  id Int [pk, increment]
+  createdAt DateTime [default: `now()`, not null]
+  teamName String [not null]
+  teamMembers Pokemon [not null]
+}
+
+Table Pokemon {
+  id Int [pk, increment]
+  createdAt DateTime [default: `now()`, not null]
+  pokemonName String [not null]
+  pokemonId Int [not null]
+  teamId Int [not null]
+  team Team [not null]
+}
+
+Ref: Pokemon.teamId > Team.id

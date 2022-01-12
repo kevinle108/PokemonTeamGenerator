@@ -2,6 +2,7 @@
   export const load = async ({fetch}) => {
     const dbRes = await fetch('/api/db');
     const data = await dbRes.json();
+    console.log(data);
     return {
       props: {
         data
